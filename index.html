@@ -171,9 +171,33 @@
       mask-image: radial-gradient(ellipse 75% 80% at 50% 50%, black, transparent);
     }
     .hero-content { position: relative; z-index: 1; padding-top: 5rem; }
+    .hero-layout  { display: grid; grid-template-columns: 1fr 420px; gap: 5rem; align-items: center; }
+    .hero-photo-col { display: flex; align-items: center; justify-content: center; visibility: hidden; }
+    .hero-photo-wrap {
+      position: relative; border-radius: 8px; overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 60px rgba(201,168,76,.08), 0 24px 60px rgba(0,0,0,.5);
+      aspect-ratio: 3/4; width: 100%;
+    }
+    .hero-photo-wrap::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, rgba(10,10,10,.45));
+      pointer-events: none;
+    }
+    .hero-photo {
+      width: 100%; height: 100%; object-fit: cover; object-position: center top;
+      display: block; filter: grayscale(8%); transition: filter .5s, transform .5s var(--expo);
+    }
+    .hero-photo-wrap:hover .hero-photo { filter: grayscale(0%); transform: scale(1.03); }
+    .hero-photo-accent {
+      position: absolute; bottom: 1.5rem; left: 1.5rem; right: 1.5rem;
+      font-family: var(--mono); font-size: 10px; letter-spacing: .14em;
+      text-transform: uppercase; color: rgba(201,168,76,.85);
+      z-index: 2;
+    }
 
     .hero-eyebrow { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: .25em; text-transform: uppercase; color: var(--acc); margin-bottom: 1.75rem; visibility: hidden; }
-    .hero-name    { font-size: clamp(4.5rem, 11vw, 9.5rem); font-weight: 700; line-height: .9; margin-bottom: 1.5rem; }
+    .hero-name    { font-size: clamp(3.5rem, 8vw, 7.5rem); font-weight: 700; line-height: .9; margin-bottom: 1.5rem; }
     .hero-name-first { display: block; }
     .hero-name-last  { display: block; color: transparent; -webkit-text-stroke: 1.5px var(--text); }
     .char-wrap { display: inline-block; overflow: hidden; vertical-align: bottom; }
@@ -181,11 +205,9 @@
     .word-wrap { display: inline-block; overflow: hidden; vertical-align: top; line-height: inherit; }
     .word      { display: inline-block; }
     .hero-sub     { font-family: var(--mono); font-size: clamp(.75rem, 1.2vw, .95rem); letter-spacing: .1em; color: var(--acc); margin-bottom: 1.5rem; visibility: hidden; }
-    .hero-tagline { font-size: clamp(1rem, 1.8vw, 1.2rem); font-weight: 300; color: var(--muted); max-width: 560px; margin-bottom: 1.75rem; line-height: 1.75; visibility: hidden; }
-    .hero-targeting { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; color: var(--dim); max-width: 600px; margin-bottom: 3rem; line-height: 1.8; visibility: hidden; }
+    .hero-tagline { font-size: clamp(1rem, 1.6vw, 1.15rem); font-weight: 300; color: var(--muted); max-width: 520px; margin-bottom: 1.75rem; line-height: 1.75; visibility: hidden; }
+    .hero-targeting { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; color: var(--dim); max-width: 560px; margin-bottom: 3rem; line-height: 1.8; visibility: hidden; }
     .hero-targeting strong { color: var(--muted); font-weight: 500; }
-    .hero-pills   { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 3.25rem; }
-    .hero-pill    { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; color: var(--muted); border: 1px solid var(--border); padding: .3rem .8rem; border-radius: 2px; visibility: hidden; }
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
     .hero-actions .btn { visibility: hidden; }
     .hero-scroll  { position: absolute; bottom: 2.25rem; left: 50%; transform: translateX(-50%); text-align: center; visibility: hidden; }
@@ -428,7 +450,12 @@
     }
 
     /* ── RESPONSIVE ── */
+    @media (max-width: 1060px) {
+      .hero-layout { grid-template-columns: 1fr 340px; gap: 3.5rem; }
+    }
     @media (max-width: 960px) {
+      .hero-layout { grid-template-columns: 1fr; }
+      .hero-photo-col { display: none; }
       .about-grid, .combat-layout { grid-template-columns: 1fr; gap: 4rem; }
       .r-grid-3, .edu-grid, .bring-grid { grid-template-columns: 1fr; }
       .stats-grid { grid-template-columns: repeat(2,1fr); }
@@ -495,21 +522,31 @@
   <div class="hero-bg" id="heroBg"></div>
   <div class="hero-grid"></div>
   <div class="container hero-content">
-    <p class="hero-eyebrow" id="eyebrow">Available · London · Law x AI x Legal Technology</p>
-    <h1 class="hero-name">
-      <span class="hero-name-first">Omar</span>
-      <span class="hero-name-last">Dildar</span>
-    </h1>
-    <p class="hero-sub" id="heroSub">Law Graduate &nbsp;·&nbsp; SQE1 Candidate &nbsp;·&nbsp; Legal Tech &amp; AI Regulation</p>
-    <p class="hero-tagline" id="tagline">
-      I help legal, compliance and technology teams understand regulation, improve workflows and apply AI responsibly.
-    </p>
-    <p class="hero-targeting" id="heroTargeting">
-      <strong>Currently targeting:</strong> Paralegal &nbsp;·&nbsp; Legal Assistant &nbsp;·&nbsp; Legal Operations &nbsp;·&nbsp; Compliance &nbsp;·&nbsp; Data Protection &nbsp;·&nbsp; AI Governance
-    </p>
-    <div class="hero-actions">
-      <a href="#evidence" class="btn btn-primary">View Evidence</a>
-      <a href="#contact"  class="btn btn-ghost">Get in Touch</a>
+    <div class="hero-layout">
+      <div class="hero-text-col">
+        <p class="hero-eyebrow" id="eyebrow">Available · London · Law x AI x Legal Technology</p>
+        <h1 class="hero-name">
+          <span class="hero-name-first">Omar</span>
+          <span class="hero-name-last">Dildar</span>
+        </h1>
+        <p class="hero-sub" id="heroSub">Law Graduate &nbsp;·&nbsp; SQE1 Candidate &nbsp;·&nbsp; Legal Tech &amp; AI Regulation</p>
+        <p class="hero-tagline" id="tagline">
+          I help legal, compliance and technology teams understand regulation, improve workflows and apply AI responsibly.
+        </p>
+        <p class="hero-targeting" id="heroTargeting">
+          <strong>Currently targeting:</strong> Paralegal &nbsp;·&nbsp; Legal Assistant &nbsp;·&nbsp; Legal Operations &nbsp;·&nbsp; Compliance &nbsp;·&nbsp; Data Protection &nbsp;·&nbsp; AI Governance
+        </p>
+        <div class="hero-actions">
+          <a href="#evidence" class="btn btn-primary">View Evidence</a>
+          <a href="#contact"  class="btn btn-ghost">Get in Touch</a>
+        </div>
+      </div>
+      <div class="hero-photo-col" id="heroPhoto">
+        <div class="hero-photo-wrap">
+          <img src="photo-professional.jpg" alt="Omar Dildar" class="hero-photo">
+          <div class="hero-photo-accent">Omar Dildar · London</div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="hero-scroll" id="heroScroll">
@@ -1173,6 +1210,8 @@
       .from('#heroTargeting',    { y: 18, opacity: 0, duration: .9, ease: EXPO }, '-=.4')
       .set('.hero-actions .btn', { visibility: 'visible' })
       .from('.hero-actions .btn',{ y: 20, opacity: 0, duration: .75, ease: EXPO, stagger: .12  }, '-=.4')
+      .set('#heroPhoto',         { visibility: 'visible' })
+      .from('#heroPhoto',        { x: 48, opacity: 0, duration: 1.2, ease: EXPO }, '-=1.2')
       .set('#heroScroll',        { visibility: 'visible' })
       .from('#heroScroll',       { opacity: 0, duration: 1.2 }, '-=.25');
   }
