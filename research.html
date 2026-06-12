@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research — Omar Dildar</title>
+  <meta name="description" content="Law × AI research by Omar Dildar — EU AI Act, GDPR, biometric surveillance, AI governance and regulatory analysis.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='3' fill='%23070b14'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='13' fill='%236366f1'>OD</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── DISSERTATION DEEP DIVE ── */
+    .research-main { max-width: 780px; margin-top: 4.5rem; }
+    .research-abstract p { color:var(--muted); font-size:1rem; line-height:1.9; margin-bottom:1.25rem; }
+    .research-abstract p:first-child::first-letter {
+      font-family:var(--display); font-size:3.5em; font-weight:800; color:var(--acc);
+      float:left; line-height:.75; margin:.1em .15em 0 0;
+    }
+    .research-findings { margin:2.75rem 0; }
+    .findings-label { font-family:var(--mono); font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--acc); margin-bottom:1.25rem; }
+    .findings-list { list-style:none; display:flex; flex-direction:column; gap:.9rem; }
+    .findings-list li { font-size:14px; color:var(--muted); padding-left:1.5rem; position:relative; line-height:1.75; }
+    .findings-list li::before { content:'—'; position:absolute; left:0; color:var(--acc); opacity:.5; }
+    .research-tags  { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:2rem; }
+    .research-dl    { margin-top:2.5rem; }
+
+    /* ── DIRECTION ── */
+    .direction-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
+    .dir-card {
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:8px; padding:2.5rem; position:relative; overflow:hidden;
+    }
+    .dir-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(to right, var(--acc), transparent); }
+    .dir-heading { font-family:var(--mono); font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--acc); margin-bottom:1.25rem; }
+    .dir-tags    { display:flex; flex-wrap:wrap; gap:.4rem; }
+    .dir-tag {
+      font-family:var(--mono); font-size:11px; color:var(--muted);
+      border:1px solid var(--border); padding:.28rem .65rem; border-radius:3px;
+      transition:color .2s, border-color .2s;
+    }
+    .dir-tag:hover { color:var(--acc); border-color:var(--border-acc); }
+
+    @media (max-width:680px) { .direction-grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<div id="progress-bar"></div>
+
+<div id="preloader">
+  <div class="pre-inner">
+    <div class="pre-logo">omar<span>.</span>d</div>
+    <div class="pre-bar"><div class="pre-bar-fill"></div></div>
+  </div>
+</div>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo">omar<span>.</span>d</a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:o.dildar@outlook.com" class="nav-cta">Get in Touch</a>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mob-nav" id="mobNav">
+  <button class="mob-close" id="mobClose">✕</button>
+  <a href="about.html">About</a>
+  <a href="experience.html">Experience</a>
+  <a href="research.html">Research</a>
+  <a href="projects.html">Projects</a>
+  <a href="index.html#contact">Contact</a>
+</div>
+
+<!-- ── PAGE HEADER ── -->
+<div class="page-header">
+  <div class="page-header-bg"></div>
+  <div class="page-header-grid"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <span class="label" id="ph-label">Law × AI</span>
+    <h1 class="page-title" id="ph-title">
+      Research &amp;<br>
+      <em>credentials.</em>
+    </h1>
+  </div>
+</div>
+
+<!-- ── SIGNALS ── -->
+<section class="section" id="signals">
+  <div class="container">
+    <span class="label">Law × AI Signals</span>
+    <h2 class="s-heading" style="margin-bottom:3.5rem;" id="signals-heading">
+      Credentials at the intersection<br>
+      <em style="color:var(--acc);font-style:normal;">of law and artificial intelligence.</em>
+    </h2>
+    <div class="r-grid-3">
+      <div class="r-card">
+        <div class="r-cat">Academic Research · LLB Final Year · 2024</div>
+        <h3 class="r-title">EU AI Act — GDPR Alignment &amp; Regulatory Architecture</h3>
+        <p class="r-desc">
+          10,000-word LLB research project examining the EU AI Act's alignment with GDPR. Analysed the prohibition of biometric mass surveillance, social scoring, manipulative AI techniques and fundamental rights protections. Assessed cross-border compliance challenges including UK regulatory divergence post-Brexit.
+        </p>
+      </div>
+      <div class="r-card">
+        <div class="r-cat">Advocacy · St Mary's University · 2023</div>
+        <h3 class="r-title">Moot Court Finalist — Defence Advocacy</h3>
+        <p class="r-desc">
+          Ranked 3rd of 20+ competing teams — highest-ranked undergraduate in the competition. Led defence advocacy in a criminal trial simulation: case construction, statutory interpretation, oral argument and courtroom composure at competition level.
+        </p>
+      </div>
+      <div class="r-card">
+        <div class="r-cat">Legal-Tech Build · 2025–2026</div>
+        <h3 class="r-title">AI Workflow Projects</h3>
+        <p class="r-desc">
+          Developing AI-powered systems at the intersection of law and technology: SQE performance tracking tools, AI-assisted legal research pipelines, document generation workflows and client-intake automation concepts. Built using Claude, Claude Code, n8n, Zapier and prompt engineering.
+        </p>
+      </div>
+    </div>
+
+    <!-- Dissertation deep-dive -->
+    <div class="research-main">
+      <div class="pull-quote">
+        "My final-year dissertation examined how the EU AI Act interacts with GDPR, focusing on prohibited AI practices, risk classification, biometric surveillance, social scoring, manipulative AI and fundamental rights protections."
+      </div>
+      <div class="research-abstract">
+        <p>
+          The research considered whether the Act gives organisations enough clarity to manage compliance across data protection, algorithmic accountability and cross-border AI deployment. The analysis maps the Act's risk-classification system against existing data protection obligations, identifying where the two regimes complement each other and where they produce conflicting compliance requirements.
+        </p>
+        <p>
+          Cross-border compliance is a recurring theme — particularly the UK's regulatory divergence post-Brexit, which creates a fragmented landscape for AI deployment across the Channel. The dissertation concludes with an assessment of the Act's adequacy as a framework for governing responsible AI in data-intensive environments.
+        </p>
+      </div>
+      <div class="research-findings">
+        <div class="findings-label">// Key Areas</div>
+        <ul class="findings-list">
+          <li>GDPR alignment and tension</li>
+          <li>Biometric surveillance</li>
+          <li>Social scoring</li>
+          <li>Manipulative AI</li>
+          <li>Fundamental rights</li>
+          <li>UK/EU regulatory divergence</li>
+          <li>Algorithmic accountability</li>
+        </ul>
+      </div>
+      <div class="research-tags">
+        <span class="attr">EU AI Act</span>
+        <span class="attr">GDPR</span>
+        <span class="attr">Biometric Surveillance</span>
+        <span class="attr">Social Scoring</span>
+        <span class="attr">Fundamental Rights</span>
+        <span class="attr">Algorithmic Accountability</span>
+        <span class="attr">Cross-Border Compliance</span>
+      </div>
+      <div class="research-dl">
+        <a href="dissertation.pdf" target="_blank" rel="noopener" class="btn btn-ghost">Download Dissertation PDF</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── DIRECTION ── -->
+<section class="section" id="direction">
+  <div class="container">
+    <span class="label">Law × AI Direction</span>
+    <h2 class="s-heading" style="margin-bottom:3.5rem;" id="dir-heading">
+      Where this is going.<br>
+      <em style="color:var(--acc);font-style:normal;">Research and build focus.</em>
+    </h2>
+    <div class="direction-grid">
+      <div class="dir-card">
+        <div class="dir-heading">// Research Focus</div>
+        <div class="dir-tags">
+          <span class="dir-tag">EU AI Act</span>
+          <span class="dir-tag">GDPR</span>
+          <span class="dir-tag">Biometric Surveillance</span>
+          <span class="dir-tag">Social Scoring</span>
+          <span class="dir-tag">Manipulative AI</span>
+          <span class="dir-tag">Fundamental Rights</span>
+          <span class="dir-tag">Cross-Border Compliance</span>
+          <span class="dir-tag">AI Governance</span>
+          <span class="dir-tag">Algorithmic Accountability</span>
+          <span class="dir-tag">Responsible AI</span>
+        </div>
+      </div>
+      <div class="dir-card">
+        <div class="dir-heading">// Build Direction</div>
+        <div class="dir-tags">
+          <span class="dir-tag">AI Agents</span>
+          <span class="dir-tag">Claude Code</span>
+          <span class="dir-tag">Legal Technology</span>
+          <span class="dir-tag">AI Governance</span>
+          <span class="dir-tag">Compliance Operations</span>
+          <span class="dir-tag">Legal Operations</span>
+          <span class="dir-tag">AI-Assisted Research</span>
+          <span class="dir-tag">Client-Intake Systems</span>
+          <span class="dir-tag">Document Generation</span>
+          <span class="dir-tag">Workflow Automation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Omar Dildar · Law × AI · London</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+  const EXPO = 'power3.out';
+  const ST   = 'top 90%';
+</script>
+<script src="nav.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    setTimeout(() => document.getElementById('preloader').classList.add('out'), 500);
+  });
+
+  function reveal(targets, opts={}) {
+    gsap.from(targets, {
+      y: opts.y ?? 36, opacity:0, duration: opts.dur ?? .85,
+      ease:EXPO, stagger: opts.stagger ?? 0,
+      scrollTrigger:{ trigger: opts.trigger ?? targets, start:'top 90%', once:true }
+    });
+  }
+
+  /* Page header */
+  gsap.from('#ph-label', { y:20, opacity:0, duration:.7, ease:EXPO, delay:.1 });
+  gsap.from('#ph-title',  { y:36, opacity:0, duration:.9, ease:EXPO, delay:.25 });
+
+  /* Signals */
+  reveal('#signals .label', { trigger:'#signals' });
+  gsap.from('#signals-heading', { y:30, opacity:0, duration:.85, ease:EXPO, scrollTrigger:{ trigger:'#signals', start:ST, once:true } });
+  gsap.from('.r-card', { opacity:0, y:44, rotationX:-8, duration:.85, ease:EXPO, stagger:.1, scrollTrigger:{ trigger:'.r-grid-3', start:ST, once:true } });
+
+  /* Dissertation */
+  reveal('.pull-quote',           { y:24, trigger:'.pull-quote' });
+  reveal('.research-abstract p',  { stagger:.1, y:18, trigger:'.research-abstract' });
+  reveal('.findings-list li',     { stagger:.05, y:12, trigger:'.research-findings' });
+  reveal('.research-tags .attr',  { stagger:.04, y:10, trigger:'.research-tags' });
+
+  /* Direction */
+  reveal('#direction .label', { trigger:'#direction' });
+  gsap.from('#dir-heading', { y:30, opacity:0, duration:.85, ease:EXPO, scrollTrigger:{ trigger:'#direction', start:ST, once:true } });
+  reveal('.dir-card', { stagger:.12, trigger:'.direction-grid' });
+  reveal('.dir-tag',  { y:10, stagger:.04, trigger:'.direction-grid', dur:.6 });
+</script>
+</body>
+</html>

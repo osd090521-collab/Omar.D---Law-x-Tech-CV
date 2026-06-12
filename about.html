@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Omar Dildar</title>
+  <meta name="description" content="Profile, background and competencies of Omar Dildar — Law Graduate, SQE1 Candidate, AI regulation researcher and combat sports practitioner.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='3' fill='%23070b14'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='13' fill='%236366f1'>OD</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── ABOUT GRID ── */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; align-items: start; }
+    .about-photo-wrap {
+      border-radius: 8px; overflow: hidden; border: 1px solid var(--border);
+      position: relative; margin-bottom: 2rem;
+      box-shadow: 0 0 40px rgba(99,102,241,.08), 0 24px 60px rgba(0,0,0,.4);
+    }
+    .about-photo { width:100%; display:block; filter:grayscale(10%); transition:filter .4s; }
+    .about-photo:hover { filter:grayscale(0%); }
+
+    /* ── COMPETENCY CARD ── */
+    .comp-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 2.5rem; position: relative; overflow: hidden;
+    }
+    .comp-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(to right, var(--acc), transparent); }
+    .comp-title { font-family:var(--mono); font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--acc); margin-bottom:1.75rem; }
+    .comp-rows  { display:flex; flex-direction:column; gap:1.25rem; }
+    .comp-row   { display:flex; align-items:center; gap:.75rem; }
+    .comp-lbl   { font-size:13px; color:var(--muted); min-width:120px; }
+    .comp-track { flex:1; height:2px; background:var(--border); border-radius:2px; overflow:hidden; }
+    .comp-bar   { height:100%; background:linear-gradient(to right, var(--acc), var(--acc-warm)); border-radius:2px; transform-origin:left; transform:scaleX(0); }
+    .comp-pct   { font-family:var(--mono); font-size:11px; color:var(--muted); min-width:34px; text-align:right; }
+
+    /* ── COMBAT SECTION ── */
+    .combat-layout { display:grid; grid-template-columns:1fr 1.4fr; gap:6rem; align-items:center; }
+    .combat-image-wrap {
+      border-radius:8px; overflow:hidden; border:1px solid var(--border);
+      aspect-ratio:4/5; position:relative;
+      box-shadow: 0 0 40px rgba(99,102,241,.07), 0 24px 60px rgba(0,0,0,.4);
+    }
+    .combat-photo { width:100%; height:100%; object-fit:cover; object-position:center; display:block; filter:grayscale(10%); transition:filter .4s; }
+    .combat-photo:hover { filter:grayscale(0%); }
+
+    @media (max-width:960px) {
+      .about-grid { grid-template-columns:1fr; gap:4rem; }
+      .combat-layout { grid-template-columns:1fr; gap:4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<div id="progress-bar"></div>
+
+<div id="preloader">
+  <div class="pre-inner">
+    <div class="pre-logo">omar<span>.</span>d</div>
+    <div class="pre-bar"><div class="pre-bar-fill"></div></div>
+  </div>
+</div>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo">omar<span>.</span>d</a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:o.dildar@outlook.com" class="nav-cta">Get in Touch</a>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mob-nav" id="mobNav">
+  <button class="mob-close" id="mobClose">✕</button>
+  <a href="about.html">About</a>
+  <a href="experience.html">Experience</a>
+  <a href="research.html">Research</a>
+  <a href="projects.html">Projects</a>
+  <a href="index.html#contact">Contact</a>
+</div>
+
+<!-- ── PAGE HEADER ── -->
+<div class="page-header">
+  <div class="page-header-bg"></div>
+  <div class="page-header-grid"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <span class="label" id="ph-label">Profile</span>
+    <h1 class="page-title" id="ph-title">
+      Precision<br>
+      <em>meets ambition.</em>
+    </h1>
+  </div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div id="about-text">
+        <span class="label">Who I Am</span>
+        <p class="about-body">
+          I'm a London-based law graduate and SQE1 candidate focused on AI regulation, legal technology and automation. My LLB dissertation examined the EU AI Act's alignment with GDPR — covering biometric surveillance, social scoring, manipulative AI, fundamental rights and cross-border compliance.
+        </p>
+        <p class="about-body">
+          I don't just study the law of AI — I build with it. Using Claude, Claude Code, n8n, Zapier and prompt engineering, I'm developing AI-assisted legal workflows: SQE performance tracking systems, document generation pipelines and client-intake automation. That intersection of legal rigour and technical capability is my edge.
+        </p>
+        <p class="about-body">
+          My background spans luxury retail, property transactions and combat sports coaching — all environments that demand precision, compliance awareness, communication under pressure and structured delivery.
+        </p>
+        <div class="attr-list">
+          <span class="attr">Legal Research</span>
+          <span class="attr">AI Regulation</span>
+          <span class="attr">AI Governance</span>
+          <span class="attr">Legal Tech Build</span>
+          <span class="attr">GDPR Compliance</span>
+          <span class="attr">Legal Operations</span>
+          <span class="attr attr-warm">MMA / Combat Sports</span>
+        </div>
+      </div>
+
+      <div id="comp-col">
+        <div class="about-photo-wrap">
+          <img src="photo-professional.jpg" alt="Omar Dildar" class="about-photo">
+        </div>
+        <div class="comp-card" id="compCard">
+          <div class="comp-title">// competency overview</div>
+          <div class="comp-rows">
+            <div class="comp-row">
+              <span class="comp-lbl">Legal Research</span>
+              <div class="comp-track"><div class="comp-bar" data-w=".92"></div></div>
+              <span class="comp-pct">92%</span>
+            </div>
+            <div class="comp-row">
+              <span class="comp-lbl">AI Regulation</span>
+              <div class="comp-track"><div class="comp-bar" data-w=".88"></div></div>
+              <span class="comp-pct">88%</span>
+            </div>
+            <div class="comp-row">
+              <span class="comp-lbl">Client Comms</span>
+              <div class="comp-track"><div class="comp-bar" data-w=".95"></div></div>
+              <span class="comp-pct">95%</span>
+            </div>
+            <div class="comp-row">
+              <span class="comp-lbl">Automation</span>
+              <div class="comp-track"><div class="comp-bar" data-w=".80"></div></div>
+              <span class="comp-pct">80%</span>
+            </div>
+            <div class="comp-row">
+              <span class="comp-lbl">AI Governance</span>
+              <div class="comp-track"><div class="comp-bar" data-w=".85"></div></div>
+              <span class="comp-pct">85%</span>
+            </div>
+            <div class="comp-row">
+              <span class="comp-lbl">Legal Tech Build</span>
+              <div class="comp-track"><div class="comp-bar" data-w=".78"></div></div>
+              <span class="comp-pct">78%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── LAW x COMBAT ── -->
+<section class="section" id="combat">
+  <div class="container">
+    <div class="combat-layout">
+      <div class="combat-image-wrap">
+        <img src="photo-mma.jpg" alt="Omar Dildar — The Gauntlet Fight Academy" class="combat-photo">
+      </div>
+      <div>
+        <span class="label">Law × Combat</span>
+        <h2 class="s-heading">
+          Pressure is a skill.<br>
+          <em style="color:var(--acc);font-style:normal;">Not a circumstance.</em>
+        </h2>
+        <p class="about-body">
+          I hold a Kukkiwon 1st Dan Black Belt and have trained across Taekwondo and MMA. Coaching 150+ students strengthened my ability to communicate clearly, enforce standards, assess performance objectively and stay composed under pressure.
+        </p>
+        <p class="about-body">
+          This matters professionally because legal and compliance work require precision, discipline and calm decision-making when stakes are high. The mindset transfers directly.
+        </p>
+        <div class="attr-list">
+          <span class="attr attr-warm">Kukkiwon 1st Dan</span>
+          <span class="attr attr-warm">150+ Students Coached</span>
+          <span class="attr attr-warm">MMA Training</span>
+          <span class="attr attr-warm">Performance Under Pressure</span>
+          <span class="attr attr-warm">Coaching</span>
+        </div>
+        <div style="margin-top:2.5rem;">
+          <a href="experience.html" class="btn btn-ghost">View Full Experience</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Omar Dildar · Law × AI · London</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+  const EXPO = 'power3.out';
+  const ST   = 'top 90%';
+</script>
+<script src="nav.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    setTimeout(() => document.getElementById('preloader').classList.add('out'), 500);
+  });
+
+  function reveal(targets, opts={}) {
+    gsap.from(targets, {
+      y: opts.y ?? 36, opacity:0, duration: opts.dur ?? .85,
+      ease:EXPO, stagger: opts.stagger ?? 0,
+      scrollTrigger:{ trigger: opts.trigger ?? targets, start:'top 90%', once:true }
+    });
+  }
+
+  /* Page header */
+  gsap.from('#ph-label', { y:20, opacity:0, duration:.7, ease:EXPO, delay:.1 });
+  gsap.from('#ph-title',  { y:36, opacity:0, duration:.9, ease:EXPO, delay:.25 });
+
+  /* About */
+  reveal('#about-text .label', { trigger:'#about-text' });
+  reveal('#about-text .about-body', { stagger:.1, trigger:'#about-text' });
+  reveal('#about-text .attr-list .attr', { y:14, stagger:.04, trigger:'#about-text .attr-list' });
+  gsap.from('#comp-col', { x:40, opacity:0, duration:.9, ease:EXPO, scrollTrigger:{ trigger:'#comp-col', start:'top 85%', once:true } });
+
+  /* Competency bars */
+  ScrollTrigger.create({
+    trigger:'#compCard', start:'top 80%', once:true,
+    onEnter() {
+      document.querySelectorAll('.comp-bar').forEach((bar, i) => {
+        gsap.to(bar, { scaleX:+bar.dataset.w, duration:1.4, ease:EXPO, delay:.15+i*.1 });
+      });
+    }
+  });
+
+  /* Combat */
+  reveal('#combat .label',  { trigger:'#combat' });
+  gsap.from('#combat .s-heading', { y:30, opacity:0, duration:.85, ease:EXPO, scrollTrigger:{ trigger:'#combat', start:ST, once:true } });
+  reveal('#combat .about-body',   { stagger:.09, trigger:'#combat' });
+  reveal('#combat .attr-list .attr', { y:14, stagger:.04, trigger:'#combat .attr-list' });
+  gsap.from('.combat-image-wrap', { opacity:0, x:-36, duration:1, ease:EXPO, scrollTrigger:{ trigger:'#combat', start:ST, once:true } });
+</script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Omar Dildar</title>
+  <meta name="description" content="AI-assisted legal workflow projects and skills by Omar Dildar — law × technology builds.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='3' fill='%23070b14'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='13' fill='%236366f1'>OD</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── PROJECT CARDS ── */
+    .projects-grid { display:flex; flex-direction:column; gap:3rem; }
+    .proj-card {
+      background:var(--bg-card); border:1px solid var(--border);
+      border-radius:8px; padding:2.75rem; position:relative; overflow:hidden;
+      transition:border-color .3s var(--expo), box-shadow .3s var(--expo), transform .3s var(--expo);
+    }
+    .proj-card:hover { border-color:var(--border-acc); box-shadow:0 0 28px rgba(99,102,241,.12); transform:translateY(-3px); }
+    .proj-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(to right, var(--acc), var(--acc-warm)); }
+    .proj-card::after {
+      content:''; position:absolute; bottom:0; left:0; right:0; height:2px;
+      background:linear-gradient(to right, var(--acc), transparent);
+      transform:scaleX(0); transform-origin:left; transition:transform .4s var(--expo);
+    }
+    .proj-card:hover::after { transform:scaleX(1); }
+    .proj-header   { display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem; flex-wrap:wrap; gap:.5rem; }
+    .proj-cat      { font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--acc); }
+    .proj-status   { font-family:var(--mono); font-size:10px; letter-spacing:.08em; color:var(--muted); border:1px solid var(--border); padding:.2rem .65rem; border-radius:3px; }
+    .proj-title    { font-family:var(--display); font-size:1.35rem; font-weight:700; margin-bottom:2rem; }
+    .proj-body     { display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-bottom:1.5rem; }
+    .proj-block-label { font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--acc); margin-bottom:.6rem; }
+    .proj-block p  { font-size:13.5px; color:var(--muted); line-height:1.75; }
+
+    /* ── SKILLS GRID ── */
+    .skills-flat { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px,1fr)); gap:2.5rem; margin-top:3rem; }
+    .skill-grp   { margin-bottom:1rem; }
+    .skill-grp-h { font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-bottom:.75rem; }
+
+    @media (max-width:680px) { .proj-body { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+<div id="progress-bar"></div>
+
+<div id="preloader">
+  <div class="pre-inner">
+    <div class="pre-logo">omar<span>.</span>d</div>
+    <div class="pre-bar"><div class="pre-bar-fill"></div></div>
+  </div>
+</div>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo">omar<span>.</span>d</a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:o.dildar@outlook.com" class="nav-cta">Get in Touch</a>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mob-nav" id="mobNav">
+  <button class="mob-close" id="mobClose">✕</button>
+  <a href="about.html">About</a>
+  <a href="experience.html">Experience</a>
+  <a href="research.html">Research</a>
+  <a href="projects.html">Projects</a>
+  <a href="index.html#contact">Contact</a>
+</div>
+
+<!-- ── PAGE HEADER ── -->
+<div class="page-header">
+  <div class="page-header-bg"></div>
+  <div class="page-header-grid"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <span class="label" id="ph-label">Build Work</span>
+    <h1 class="page-title" id="ph-title">
+      Law × AI<br>
+      <em>projects.</em>
+    </h1>
+  </div>
+</div>
+
+<!-- ── PROJECTS ── -->
+<section class="section" id="projects">
+  <div class="container">
+    <span class="label">Selected Projects</span>
+    <h2 class="s-heading" style="margin-bottom:3.5rem;" id="proj-heading">
+      Building at the intersection<br>
+      <em style="color:var(--acc);font-style:normal;">of law and AI.</em>
+    </h2>
+    <div class="projects-grid">
+
+      <div class="proj-card">
+        <div class="proj-header">
+          <div class="proj-cat">SQE Performance Tracking · 2025–2026</div>
+          <div class="proj-status">In Active Personal Use</div>
+        </div>
+        <h3 class="proj-title">SQE1 Performance Intelligence System</h3>
+        <div class="proj-body">
+          <div class="proj-block">
+            <div class="proj-block-label">Problem</div>
+            <p>SQE1 preparation produces large amounts of performance data, but most revision systems do not clearly identify recurring legal-rule weaknesses across subjects and topics.</p>
+          </div>
+          <div class="proj-block">
+            <div class="proj-block-label">Build</div>
+            <p>A Claude-assisted tracking system that records MCQ performance, identifies repeated mistakes by subject and topic, and converts wrong answers into structured revision priorities.</p>
+          </div>
+          <div class="proj-block">
+            <div class="proj-block-label">Tools</div>
+            <div class="tags" style="margin-top:.5rem;">
+              <span class="tag hi">Claude</span>
+              <span class="tag hi">Claude Code</span>
+              <span class="tag">Prompt Engineering</span>
+              <span class="tag">Structured Data Tracking</span>
+            </div>
+          </div>
+          <div class="proj-block">
+            <div class="proj-block-label">Legal Relevance</div>
+            <p>Shows legal analysis, exam discipline, data organisation and workflow design — directly applicable to legal research and compliance tracking contexts.</p>
+          </div>
+        </div>
+        <div style="margin-top:.5rem;">
+          <div class="proj-block-label">Status</div>
+          <p style="font-size:13.5px;color:var(--muted);">In active personal use for SQE1 preparation.</p>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-header">
+          <div class="proj-cat">Legal Research Pipeline · 2026</div>
+          <div class="proj-status">Prototype</div>
+        </div>
+        <h3 class="proj-title">AI-Assisted Legal Research Pipeline</h3>
+        <div class="proj-body">
+          <div class="proj-block">
+            <div class="proj-block-label">Problem</div>
+            <p>Legal research requires identifying relevant law, synthesising sources and structuring arguments accurately — a time-intensive process suited to AI augmentation.</p>
+          </div>
+          <div class="proj-block">
+            <div class="proj-block-label">Build</div>
+            <p>A prototype workflow that takes a legal question and produces a structured research brief containing relevant statutes, cases, issues and an initial argument map.</p>
+          </div>
+          <div class="proj-block">
+            <div class="proj-block-label">Tools</div>
+            <div class="tags" style="margin-top:.5rem;">
+              <span class="tag hi">Claude</span>
+              <span class="tag hi">Claude Code</span>
+              <span class="tag">Westlaw / LexisNexis</span>
+              <span class="tag">Prompt Engineering</span>
+              <span class="tag">Doc Generation</span>
+            </div>
+          </div>
+          <div class="proj-block">
+            <div class="proj-block-label">Legal Relevance</div>
+            <p>Built to support research organisation, not replace legal judgment. Designed for paralegal and legal ops contexts.</p>
+          </div>
+        </div>
+        <div style="margin-top:.5rem;">
+          <div class="proj-block-label">Status</div>
+          <p style="font-size:13.5px;color:var(--muted);">Prototype stage. Being refined for UK legal citation accuracy and jurisdictional specificity.</p>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-header">
+          <div class="proj-cat">Client-Intake Automation · 2026</div>
+          <div class="proj-status">Concept Design</div>
+        </div>
+        <h3 class="proj-title">Client-Intake Automation for Small Law Firms</h3>
+        <div class="proj-body">
+          <div class="proj-block">
+            <div class="proj-block-label">Problem</div>
+            <p>Small legal practices spend significant time on routine intake, document collection, conflict-check flagging and matter-opening — all candidates for intelligent automation.</p>
+          </div>
+          <div class="proj-block">
+            <div class="proj-block-label">Build</div>
+            <p>A conceptual workflow for intake questionnaires, document requests, matter summaries and compliance prompts — reducing admin friction while maintaining AML and client-care awareness.</p>
+          </div>
+          <div class="proj-block">
+            <div class="proj-block-label">Tools</div>
+            <div class="tags" style="margin-top:.5rem;">
+              <span class="tag">n8n</span>
+              <span class="tag">Zapier</span>
+              <span class="tag hi">Claude</span>
+              <span class="tag">Doc Generation</span>
+              <span class="tag">Workflow Automation</span>
+            </div>
+          </div>
+          <div class="proj-block">
+            <div class="proj-block-label">Legal Relevance</div>
+            <p>Explores how small firms could reduce admin overhead while maintaining compliance awareness across AML, conflict and client-care obligations.</p>
+          </div>
+        </div>
+        <div style="margin-top:.5rem;">
+          <div class="proj-block-label">Status</div>
+          <p style="font-size:13.5px;color:var(--muted);">Concept design. Seeking practical testing in a legal clinic or small-firm environment.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── SKILLS ── -->
+<section class="section" id="skills">
+  <div class="container">
+    <span class="label">Skills &amp; Expertise</span>
+    <h2 class="s-heading" style="margin-bottom:.5rem;" id="skills-heading">
+      Where legal rigour<br>
+      <em style="color:var(--acc);font-style:normal;">meets technical fluency.</em>
+    </h2>
+    <div class="skills-flat">
+      <div class="skill-grp">
+        <div class="skill-grp-h">Legal</div>
+        <div class="tags">
+          <span class="tag hi">Legal Research</span>
+          <span class="tag hi">Statutory Interpretation</span>
+          <span class="tag">Case Analysis</span>
+          <span class="tag">Legal Writing</span>
+          <span class="tag">Advocacy</span>
+          <span class="tag hi">GDPR</span>
+          <span class="tag hi">EU AI Act</span>
+        </div>
+      </div>
+      <div class="skill-grp">
+        <div class="skill-grp-h">Compliance / Regulatory</div>
+        <div class="tags">
+          <span class="tag hi">AML / KYC</span>
+          <span class="tag hi">Data Protection</span>
+          <span class="tag">Consumer Law</span>
+          <span class="tag">Regulated Transactions</span>
+          <span class="tag">Documentation Accuracy</span>
+        </div>
+      </div>
+      <div class="skill-grp">
+        <div class="skill-grp-h">AI / Legal Tech</div>
+        <div class="tags">
+          <span class="tag hi">Claude</span>
+          <span class="tag hi">Claude Code</span>
+          <span class="tag hi">ChatGPT</span>
+          <span class="tag hi">Prompt Engineering</span>
+          <span class="tag">n8n</span>
+          <span class="tag">Zapier</span>
+          <span class="tag">Doc Generation</span>
+          <span class="tag">Workflow Automation</span>
+        </div>
+      </div>
+      <div class="skill-grp">
+        <div class="skill-grp-h">Research Tools</div>
+        <div class="tags">
+          <span class="tag hi">Westlaw</span>
+          <span class="tag hi">LexisNexis</span>
+          <span class="tag">Case Analysis</span>
+          <span class="tag hi">AI Governance Research</span>
+        </div>
+      </div>
+      <div class="skill-grp">
+        <div class="skill-grp-h">Professional</div>
+        <div class="tags">
+          <span class="tag">Client Service</span>
+          <span class="tag">Complaint Handling</span>
+          <span class="tag">Record Keeping</span>
+          <span class="tag">Communication Under Pressure</span>
+        </div>
+      </div>
+      <div class="skill-grp">
+        <div class="skill-grp-h">Languages</div>
+        <div class="tags">
+          <span class="tag hi">English (Native)</span>
+          <span class="tag hi">Dari (Native)</span>
+          <span class="tag hi">Farsi (Native)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Omar Dildar · Law × AI · London</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+  const EXPO = 'power3.out';
+  const ST   = 'top 90%';
+</script>
+<script src="nav.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    setTimeout(() => document.getElementById('preloader').classList.add('out'), 500);
+  });
+
+  function reveal(targets, opts={}) {
+    gsap.from(targets, {
+      y: opts.y ?? 36, opacity:0, duration: opts.dur ?? .85,
+      ease:EXPO, stagger: opts.stagger ?? 0,
+      scrollTrigger:{ trigger: opts.trigger ?? targets, start:'top 90%', once:true }
+    });
+  }
+
+  /* Page header */
+  gsap.from('#ph-label', { y:20, opacity:0, duration:.7, ease:EXPO, delay:.1 });
+  gsap.from('#ph-title',  { y:36, opacity:0, duration:.9, ease:EXPO, delay:.25 });
+
+  /* Projects */
+  reveal('#projects .label', { trigger:'#projects' });
+  gsap.from('#proj-heading', { y:30, opacity:0, duration:.85, ease:EXPO, scrollTrigger:{ trigger:'#projects', start:ST, once:true } });
+  gsap.from('.proj-card', { opacity:0, y:44, duration:.85, ease:EXPO, stagger:.12, scrollTrigger:{ trigger:'.projects-grid', start:ST, once:true } });
+
+  /* Skills */
+  reveal('#skills .label', { trigger:'#skills' });
+  gsap.from('#skills-heading', { y:30, opacity:0, duration:.85, ease:EXPO, scrollTrigger:{ trigger:'#skills', start:ST, once:true } });
+  reveal('.skill-grp', { stagger:.08, trigger:'.skills-flat' });
+</script>
+</body>
+</html>
