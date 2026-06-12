@@ -2,35 +2,6 @@
 (function () {
   const isMouse = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-  /* ── CUSTOM CURSOR ── */
-  if (isMouse) {
-    const dot  = document.getElementById('cursor-dot');
-    const ring = document.getElementById('cursor-ring');
-    let mx = 0, my = 0, rx = 0, ry = 0;
-
-    document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      gsap.set(dot, { x: mx, y: my });
-    }, { passive: true });
-
-    (function tickRing() {
-      rx += (mx - rx) * 0.11;
-      ry += (my - ry) * 0.11;
-      gsap.set(ring, { x: rx, y: ry });
-      requestAnimationFrame(tickRing);
-    })();
-
-    /* Expand ring on interactive elements */
-    document.querySelectorAll('a, button, .btn, .r-card, .edu-card, .bring-card').forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        gsap.to(ring, { width: 48, height: 48, borderColor: 'rgba(99,102,241,.9)', duration: .2 });
-      });
-      el.addEventListener('mouseleave', () => {
-        gsap.to(ring, { width: 30, height: 30, borderColor: 'rgba(99,102,241,.55)', duration: .2 });
-      });
-    });
-  }
-
   /* ── SCROLL PROGRESS BAR ── */
   const bar = document.getElementById('progress-bar');
   if (bar) {
